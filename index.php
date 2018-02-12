@@ -1,32 +1,58 @@
 <?php
-
-namespace Theory;
-
-require_once "DebClass.php";
+require_once 'starter.php';
 
 
-function myReadFile($filePath)
+
+function br()
 {
-  if (!file_exists($filePath)) {
-    throw new \Exception("file '${filePath}' doesn`t exist!");    
-  }
+  echo "<br>";
 }
 
-function readFolder($folderPath)
+function dumper($var)
 {
-  return [myReadFile($folderPath)];
+  echo "<pre>";
+  var_dump($var);
+  echo "<pre>";
 }
 
-function tryReadFile()
-{
-  try {
-    $bodies = readFolder("path/to/folder");
-    return $bodies;
-  } catch (\Exception $e) {
-    echo $e->getMessage();
-    return [];
-  }
-}
+// require_once 'Classes/Animal.php';
+// require_once 'Classes/Dog.php';
+// require_once 'Classes/Bird.php';
+// require_once 'Interfaces/IFly.php';
+// require_once 'Trates/Bark.php';
 
-$result = tryReadFile();
-print_r($result);
+
+
+$dog = new Dog('Pasha', 12, 4);
+dumper($dog);
+
+$dog->getName();
+br();
+$dog->Bark();
+br();
+$dog->getSpeed();
+br();
+$dog->canFly();
+br();
+$dog->banch();
+
+$bird = new Bird('Lastka', 2, 2);
+dumper($bird);
+
+$bird->getName();
+br();
+$bird->Bark();
+br();
+$bird->getFlySpeed();
+br();
+$bird->getSpeed();
+$bird->setFlySpeed(100);
+br();
+$bird->getFlySpeed();
+br();
+$bird->canFly();
+br();
+$bird->banch();
+
+
+
